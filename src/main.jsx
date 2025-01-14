@@ -7,6 +7,7 @@ import Navbar from './Components/Navbar'
 import Home from './Components/Home'
 import Footer from './Components/Footer'
 import ErrorElement from './Components/ErrorElement'
+import Banner from './Components/Banner'
 import {
   createBrowserRouter,
   RouterProvider,
