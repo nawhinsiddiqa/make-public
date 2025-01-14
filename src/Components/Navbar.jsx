@@ -29,9 +29,9 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <a className="flex text-3xl font-bold text-rose-600">
-                        <img className="w-12" src="https://i.ibb.co.com/yyw6v3v/images.png"></img>
-                        <span className="mt-2 script">Food Zone</span>
+                    <a className="flex text-3xl font-bold text-emerald-600">
+                        <img className="w-20" src="https://i.ibb.co.com/Bg4GwJQ/png-transparent-dog-tag-cat-pet-pet-footprints-logo-miscellaneous-free-logo-design-template-text-thu.png"></img>
+                        <span className="my-6 script">Amazing Pet</span>
                     </a>
                 </div>
                 <div className="flex-1 gap-5 font-bold text-blue-600">
