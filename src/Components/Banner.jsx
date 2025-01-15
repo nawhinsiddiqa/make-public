@@ -11,7 +11,8 @@ const Banner = () => {
                   
                 </div>
                 <div>
-                    <img src="https://i.ibb.co.com/TTzGjwC/Gear-New-Pet-1168772154.webp"></img>
+                    <img className="w-[200px]"
+                     src="https://i.ibb.co.com/TTzGjwC/Gear-New-Pet-1168772154.webp"></img>
                
                 </div>
                 <div>

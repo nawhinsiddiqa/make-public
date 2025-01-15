@@ -7,11 +7,14 @@ import Navbar from './Components/Navbar'
 import Home from './Components/Home'
 import Footer from './Components/Footer'
 import ErrorElement from './Components/ErrorElement'
+import Login from './Components/Login'
+import Register from './Components/Register'
 import Banner from './Components/Banner'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import AuthProvider from './Provider/AuthProvider'
 
 
 
@@ -27,9 +30,21 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Home></Home>
+        element:<Home></Home>,
     },
-  
+   {
+        path:'/login',
+        element:<Login></Login>
+   },
+   {
+    path:'/register',
+    element:<Register></Register>
+   }
+
+
+
+
+
   ]
   },
 ]);
@@ -38,6 +53,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+   <AuthProvider>
+   <RouterProvider router={router} />
+   </AuthProvider>
   </StrictMode>,
 )
