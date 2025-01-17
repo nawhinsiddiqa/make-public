@@ -15,6 +15,8 @@ const PetsCategory = () => {
     
     return (
         <div >
+            <h1 className='text-5xl font-bold script text-center text-green-500'>Pets Category section</h1>
+            <p className='my-5 text-center text-xl'>Dogs, cats, birds, and some other animals are kept as household pets.consider pets as a family, their ability to provide social support is enhanced.</p>
             <Tabs  defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList>
                     <Tab>Cat</Tab>

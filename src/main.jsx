@@ -15,6 +15,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import AuthProvider from './Provider/AuthProvider'
+import Dashboard from './Layout/Dashboard'
+import AddAPet from './Components/AddAPet'
+import MyAddedPet from './Components/MyAddedPet'
+import AdoptationRequest from './Components/AdoptationRequest'
+import CallAction from './Components/CallAction'
 
 
 
@@ -39,14 +44,43 @@ const router = createBrowserRouter([
    {
     path:'/register',
     element:<Register></Register>
-   }
+   },
 
+   {
+    path:'/callAction',
+    element:<CallAction></CallAction>
+   },
+
+ 
 
 
 
 
   ]
   },
+  {
+    path:'/dashboard',
+    element:<Dashboard></Dashboard>,
+    children:[
+       {
+        path:'addPet',
+        element:<AddAPet></AddAPet>
+       },
+       {
+        path:'myAddedPet',
+        element:<MyAddedPet></MyAddedPet>
+       },
+       {
+        path:'adoptationRequest',
+        element:<AdoptationRequest></AdoptationRequest>
+       },
+    
+    ]
+   
+  },
+ 
+   
+
 ]);
 
 

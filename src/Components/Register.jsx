@@ -4,10 +4,12 @@ import Lottie from "lottie-react";
 import { useContext, useState } from "react";
 import {AuthContext} from "../Provider/AuthProvider"
 import { useForm } from "react-hook-form";
-
+import Swal from 'sweetalert2'
 import auth from "../Firebase/Firebase.config";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Register = () => {
+    const axiosPublic= useAxiosPublic();
     const{createUser, updateUserProfile } =useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState('');
     
@@ -32,7 +34,7 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
-                // Swal.fire("Successfully Registered")
+               
                 console.log(result.user)
                 // setTimeout(() => {
                 //     // navigate('/')
@@ -43,10 +45,20 @@ const Register = () => {
                 }
                 updateUserProfile(name,photo)
                 .then(() =>{
-                    console.log('user updated')
-                    .catch(error =>console.log('user Profile Error'))
+                    const userInfo ={
+                        name:name,
+                        email:email
+                    }
+                   axiosPublic.post('/users',userInfo)
+                   .then(res =>{
+                    if(res.data.insertedId){
+                        // console.log('inserted')
+                        Swal.fire("created!");
+                    }
+                   })
+                   
                 })
-
+                .catch(error =>console.log('user Profile Error'))
             })
 
            

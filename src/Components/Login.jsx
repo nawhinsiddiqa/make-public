@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginBanner from'../assets/Login.json'
 import Lottie from "lottie-react";
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { useContext, useEffect, useRef, useState } from "react";
 import {AuthContext} from "../Provider/AuthProvider"
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import axios from "axios";
 
 const Login = () => {
     const captchaRef =useRef(null)
     const[disabled,setDisabled] =useState(true);
-    const{ signInUser} =useContext(AuthContext)
+    const{ signInUser,googleSignIn} =useContext(AuthContext);
+    const axiosPublic =useAxiosPublic();
+    const navigate =useNavigate();
     useEffect(()=>{
         loadCaptchaEnginge(6); 
     },[])
@@ -40,7 +44,7 @@ const Login = () => {
             .catch(error => {
                 console.log('ERROR', error.message)
             })
-
+           
 
     }
             const handleValidateCaptcha=()=>{
@@ -51,7 +55,21 @@ const Login = () => {
                
 
             }
-  
+            const  handleGoogleSignIn =()=>{
+                googleSignIn()
+                .then(result =>{
+                    console.log(result.user)
+                    const userInfo ={
+                        email:result.user?.email,
+                        name:result.user?.displayName
+                    }
+                axiosPublic.post('/users',userInfo)
+                .then(res =>{
+                    console.log(res.data)
+                    navigate('/');
+                })
+                })
+            }
     return (
         <div>
             
@@ -105,7 +123,7 @@ const Login = () => {
                             </p>
                             <p>
                                 <button
-                                    // onClick={handleGoogleSignIn}
+                                    onClick={handleGoogleSignIn}
                                     className="btn bg-slate-500 w-full mx-auto text-black">Google</button>
                             </p>
 
