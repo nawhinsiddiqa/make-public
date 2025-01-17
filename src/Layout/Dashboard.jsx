@@ -6,20 +6,31 @@ import { MdPets } from "react-icons/md";
 
 
 const Dashboard = () => {
-  const isAdmin =true; 
+//   const isAdmin =false; 
     return (
         <div className="flex">
             <div className="w-64 min-h-full bg-lime-400  text-center mt-4">
                 <ul className="p-4 mb-3">
-                {
-                    isAdmin ? <>
+                 
+                           <li className="mb-3"><NavLink to="/dashboard/adoptationRequest">Users</NavLink></li>
+                           <li className="mb-3"><NavLink to="/dashboard/adoptationRequest">All Pet</NavLink></li>
+                           <div className="divider"></div>
                     
-            
+                     
                     
-                    </>  
-                        :
-                    <>
-                        <li className=""><NavLink to="/dashboard/addPet">
+                    
+                    
+                
+               
+                     
+                    
+                
+
+                    
+
+                 
+                    
+                    <li className=""><NavLink to="/dashboard/addPet">
                     
                     <p> Add a pet </p>
                      </NavLink></li>
@@ -30,12 +41,15 @@ const Dashboard = () => {
                      <li className="mb-3"><NavLink to="/dashboard/adoptationRequest">Edit Donation</NavLink></li>
                      <li className="mb-3"><NavLink to="/dashboard/adoptationRequest">My Donation</NavLink></li>
                      <li className="mb-3"><NavLink to="/dashboard/adoptationRequest">Adoptation Request</NavLink></li>
+                   
+                        
+                 
+                       
+            
                     
-                    
-                    </>
-                }
-                     <div className="divider"></div>
-                     <li className="mb-3"><NavLink to="/dashboard/adoptationRequest">Users</NavLink></li>
+                   
+             
+                  
                 </ul>
                 
             </div>

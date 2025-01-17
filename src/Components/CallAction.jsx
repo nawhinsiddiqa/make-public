@@ -34,14 +34,14 @@ const CallAction = () => {
 
             </div>
 
-            <p className=" text-center text-2xl font-bold "> Your Perfect Companion is Waiting!</p><br></br>
+            <p className="text-2xl font-bold w-11/12 ml-4"> Your Perfect Companion is Waiting!</p>
       
             ✨ Whether you're looking for a playful puppy, a cuddly kitten, or a wise senior pet, shelters have animals of all ages, breeds, and personalities.
 
             Take the first step today!<br></br>
-            ✔ Visit your local shelter or adoption center
-            ✔ Check online pet adoption platforms
-            ✔ Spread the word and encourage others to adopt
+            ✔ Visit your local shelter or adoption center<br></br>
+            ✔ Check online pet adoption platforms<br></br>
+            ✔ Spread the word and encourage others to adopt<br></br>
 
             🐶🐱 Give a pet a home – change their life, and yours too! 🏡💕
 
