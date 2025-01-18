@@ -1,9 +1,14 @@
 import { useForm } from "react-hook-form";
 import useAxiosPublic from"../hooks/useAxiosPublic"
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 
 const AddAPet = () => {
+    const navigate =useNavigate()
     const image_hosting_key =import.meta.env.VITE_IMAGE_HOSTING_KEY;
     const axiosPublic = useAxiosPublic();
+    const axiosSecure=useAxiosSecure();
     const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key }`;
     const {
         register,
@@ -23,15 +28,26 @@ const AddAPet = () => {
         })
            if(res.data.success){
             const petItem={
-              name:data.petName,
-              category:data.petCategory,
-              age:parseFloat(data.petAge),
-              image:res.data.data.display_url,
-              location:data.petLocation,
-              short:data.shortDescription,
-              long:data.longDescription
+             petName:data.petName,
+             petCategory:data.petCategory,
+             petAge:parseFloat(data.petAge),
+              petImage:res.data.data.display_url,
+             petLocation:data.petLocation,
+              shortdescription:data.shortDescription,
+              longDescription:data.longDescription
 
             }
+            const petRes =await axiosSecure.post('/pets',petItem)
+            console.log(petRes.data)
+            if(petRes.data.insertedId){
+                Swal.fire({
+                    title: "Good job!",
+                    text: "You Added Data!",
+                    icon: "success"
+                  });
+
+            }
+            navigate('/dashboard/myAddedPet')
            }
        console.log(res.data)
     }

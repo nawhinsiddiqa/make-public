@@ -11,6 +11,18 @@
       
       "longDescription": "Whiskers is a two-year-old domestic shorthair with a vibrant personality. He’s incredibly friendly with both people and other pets. His favorite activities include playing with his feather wand and exploring small hiding spots around the house. He’s looking for a loving home where he can get plenty of playtime and affection."
     },
+    { 
+      "petImage": "https://i.ibb.co.com/QQXtS70/download-24.jpg",
+      "petName": "Goldie",
+      "petAge": 3,
+      "date" :"22-2-2025",
+      "status":"Not-adopted",
+      "petCategory": "fish",
+      "petLocation": "Los Angeles, CA",
+      "shortDescription": "A bright and cheerful swimmer.Goldie loves swimming around decorative plants and rocks",
+   
+      "longDescription": "Goldie is a one-year-old Goldfish with vibrant orange scales that brighten up any aquarium. She’s easy to care for and enjoys a clean tank with ample swimming space. Goldie thrives in a peaceful environment and gets along well with other non-aggressive fish. She’s perfect for first-time fish owners."
+    },
     
     {  
       "petImage": "https://i.ibb.co.com/cN3MrS5/download-16.jpg",
@@ -87,6 +99,18 @@
         "longDescription": "Daisy is a one-year-old Labrador Retriever who’s as sweet as can be. She loves playing in the water and enjoys cuddling up with her humans. Daisy is great with kids and would be a perfect addition to an active family. She’s eager to explore the world with her new owners."
       },
       {  
+        "petImage": "https://i.ibb.co.com/FgTRX4t/download-23.jpg",
+        "petName": "Coco",
+        "petAge": 3,
+        "date" :"16-2-2025",
+        "status":"not-adopted",
+        "petCategory": "rabbit",
+        "petLocation": "Austin, TX",
+        "shortDescription": "An intelligent and friendly bunny.Coco enjoys puzzle toys and gentle petting sessions.",
+     
+        "longDescription": "Coco is a thr2e-year-old Rex rabbit known for her intelligence and sociable nature. She loves interactive toys and enjoys figuring out puzzles to earn treats. Coco thrives in an environment where she gets mental stimulation and opportunities to bond with her human companions."
+      },
+      {  
         "petImage": "https://i.ibb.co.com/RzDXzg2/download-22.jpg",
         "petName": "Charlie",
         "petAge": 4,
@@ -148,18 +172,7 @@
           "longDescription": "Peanut is a four-year-old Mini Lop with a gentle and calm personality. He loves snuggling up with his humans and enjoys being petted. Peanut is a wonderful companion for anyone looking for a quiet and affectionate pet. He prefers a peaceful environment where he can relax and feel safe."
         },
         
-          { 
-            "petImage": "https://i.ibb.co.com/QQXtS70/download-24.jpg",
-            "petName": "Goldie",
-            "petAge": 3,
-            "date" :"22-2-2025",
-            "status":"Not-adopted",
-            "petCategory": "fish",
-            "petLocation": "Los Angeles, CA",
-            "shortDescription": "A bright and cheerful swimmer.Goldie loves swimming around decorative plants and rocks",
-         
-            "longDescription": "Goldie is a one-year-old Goldfish with vibrant orange scales that brighten up any aquarium. She’s easy to care for and enjoys a clean tank with ample swimming space. Goldie thrives in a peaceful environment and gets along well with other non-aggressive fish. She’s perfect for first-time fish owners."
-          },
+       
           { 
             "petImage": "https://i.ibb.co.com/zXLF9jx/download-25.jpg",
             "petName": "Bubbles",
