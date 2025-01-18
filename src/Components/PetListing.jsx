@@ -9,13 +9,14 @@ const PetListing = () => {
         const[loading,setLoading] =useState(true);
         const[search,setSearch] =useState('');
         useEffect(()=>{
-            fetch('http://localhost:5000/all-pets?search=$(search)')
+            fetch(`http://localhost:5000/all-pets?search=${search}`)
             .then(res =>res.json())
             .then(data =>{
                 setPet(data);
                 setLoading(false)
+               
             })
-        },[])
+        },[search])
       
     
     const total = pet.filter(item => item.status === 'Not-adopted')

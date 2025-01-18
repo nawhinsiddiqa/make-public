@@ -13,7 +13,7 @@ const Dashboard = () => {
             <div className="w-64 min-h-full bg-lime-400  text-center mt-4">
                 <ul className="p-4 mb-3">
                  
-                           <li className="mb-3"><NavLink to="/dashboard/adoptationRequest">Users</NavLink></li>
+                           <li className="mb-3"><NavLink to="/dashboard/user">Users</NavLink></li>
                            <li className="mb-3"><NavLink to="/dashboard/adoptationRequest">All Pet</NavLink></li>
                            <div className="divider"></div>
                     

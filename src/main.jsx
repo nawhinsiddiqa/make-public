@@ -21,6 +21,8 @@ import MyAddedPet from './Components/MyAddedPet'
 import AdoptationRequest from './Components/AdoptationRequest'
 import CallAction from './Components/CallAction'
 import PetListing from './Components/PetListing'
+import PetDetails from './Components/PetDetails'
+import User from './Components/User'
 
 
 
@@ -55,6 +57,11 @@ const router = createBrowserRouter([
     path:'/petListing',
     element:<PetListing></PetListing>
 
+   },
+   {
+    path:'/details/:id',
+    element:<PetDetails></PetDetails>,
+       loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`)
    }
 
 
@@ -79,7 +86,10 @@ const router = createBrowserRouter([
         path:'adoptationRequest',
         element:<AdoptationRequest></AdoptationRequest>
        },
-    
+       {
+        path:'user',
+        element:<User></User>
+       }     
     ]
    
   },
