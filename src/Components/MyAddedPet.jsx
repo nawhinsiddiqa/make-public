@@ -9,7 +9,7 @@ const MyAddedPet = () => {
     useEffect(() => {
         fetch('http://localhost:5000/pets')
             .then(res => res.json())
-            .then(data => setPets(data.slice(0, 10)))
+            .then(data => setPets(data.slice(0, 12)))
     }, [])
 
     return (
@@ -24,10 +24,12 @@ const MyAddedPet = () => {
                                     <input type="checkbox" className="checkbox" />
                                 </label>
                             </th>
+                            <div className="flex mt-2"><th>Image</th>
                             <th>Name</th>
+                            </div>
                             <th> Adoptation Status</th>
                             <th>Pet Age</th>
-                            <th></th>
+                            <th>Buttons</th>
                         </tr>
                     </thead>
                     <tbody>

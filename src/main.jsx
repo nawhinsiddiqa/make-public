@@ -20,6 +20,7 @@ import AddAPet from './Components/AddAPet'
 import MyAddedPet from './Components/MyAddedPet'
 import AdoptationRequest from './Components/AdoptationRequest'
 import CallAction from './Components/CallAction'
+import PetListing from './Components/PetListing'
 
 
 
@@ -50,8 +51,11 @@ const router = createBrowserRouter([
     path:'/callAction',
     element:<CallAction></CallAction>
    },
+   {
+    path:'/petListing',
+    element:<PetListing></PetListing>
 
- 
+   }
 
 
 
