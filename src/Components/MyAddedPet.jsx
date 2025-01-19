@@ -19,10 +19,8 @@ const MyAddedPet = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
+                            <th className="mt-10">
+                               Serial Number
                             </th>
                             <div className="flex mt-2"><th>Image</th>
                             <th>Name</th>
@@ -35,11 +33,9 @@ const MyAddedPet = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            pets.map(pet=><tr>
+                            pets.map((pet,index)=><tr>
                                 <th>
-                                    <label>
-                                        <input type="checkbox" className="checkbox" />
-                                    </label>
+                                 {index+1}
                                 </th>
                                 <td>
                                     <div className="items-center gap-3">

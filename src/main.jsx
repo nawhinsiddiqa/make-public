@@ -23,6 +23,14 @@ import CallAction from './Components/CallAction'
 import PetListing from './Components/PetListing'
 import PetDetails from './Components/PetDetails'
 import User from './Components/User'
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
+
+
+const queryClient = new QueryClient();
 
 
 
@@ -61,7 +69,7 @@ const router = createBrowserRouter([
    {
     path:'/details/:id',
     element:<PetDetails></PetDetails>,
-       loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`)
+    loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`)
    }
 
 
@@ -102,8 +110,12 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <AuthProvider>
+  
+
+  <AuthProvider>
+   <QueryClientProvider client={queryClient}>
    <RouterProvider router={router} />
+    </QueryClientProvider>
    </AuthProvider>
   </StrictMode>,
 )

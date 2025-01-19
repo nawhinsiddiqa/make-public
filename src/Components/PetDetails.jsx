@@ -2,7 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 
 
 const PetDetails = () => {
-    const{id} =useParams;
+
         const { _id,petImage, petName, petAge, date, status, petCategory, petLocation, shortDescription, longDescription }= useLoaderData();
    
     return (
