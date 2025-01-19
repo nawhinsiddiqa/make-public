@@ -28,12 +28,12 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 // Swal.fire("Successfully Logged in")
-                console.log(result.user.email)
+                console.log(result)
                 const user = {email:result.user.email}
                 // axios.post('https://assignment-11-server-blond-omega.vercel.app/jwt',user,{withCredentials:true})
-                .then(res =>{
-                    console.log(res.data)
-                })
+                // .then(res =>{
+                //     console.log(res.data)
+                // })
                      
                 
                 setTimeout(() => {

@@ -1,7 +1,22 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const Navbar = () => {
+    const navigate =useNavigate();
+    const{user,logOut} =useContext(AuthContext);
+
+
+    const handleLogOut=()=>{
+        logOut()
+        .then(()=>{
+            Swal.fire('User Sign Out Successfully')
+            navigate('/login')
+        })
+        .catch(error => console.log('ERROR', error.message))
+    }
     return (
         <div>
             <div className="navbar bg-base-100 w-11/12 mx-auto">
@@ -52,7 +67,7 @@ const Navbar = () => {
                             <div className="w-10 rounded-full">
                                 <img
                                     alt="Tailwind CSS Navbar component"
-                                    src="" />
+                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                             </div>
                         </div>
                         <ul
@@ -65,7 +80,7 @@ const Navbar = () => {
                                 </a>
                             </li>
                             <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-                            <li><a>Logout</a></li>
+                            <button onClick={handleLogOut}><li><a>Logout</a></li></button>
                         </ul>
                     </div>
                 </div>
