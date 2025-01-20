@@ -30,6 +30,8 @@ import {
   QueryClientProvider,
   useQuery,
 } from '@tanstack/react-query'
+import DonationCampaign from './Components/DonationCampaign'
+import DonateDetails from './Components/DonateDetails'
 
 
 const queryClient = new QueryClient();
@@ -74,11 +76,21 @@ const router = createBrowserRouter([
     loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`)
    },
    {
+    path:'/donate/details/:id',
+    element:<DonateDetails></DonateDetails>,
+    loader:({params})=>fetch(`http://localhost:5000/donate/details/${params.id}`)
+   },
+   {
     path:'/updataPet/:id',
     element:<UpdataPet></UpdataPet>,
     loader:({params}) =>fetch(`http://localhost:5000/details/${params.id}`)
    },
+         
 
+   {
+    path:'donationCampaignPage',
+    element:<DonationCampaign></DonationCampaign>
+   }
 
 
 

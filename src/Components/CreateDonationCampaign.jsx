@@ -29,10 +29,11 @@ const CreateDonationCampaign = () => {
         if (res.data.success) {
             const petItem = {
                 donation: data.donation,
-                date:data.date,
-        
+                MaximumDonation: data.maximunDonation,
+                date: data.date,
+
                 petImage: res.data.data.display_url,
-                
+
                 shortdescription: data.shortDescription,
                 longDescription: data.longDescription
 
@@ -42,12 +43,12 @@ const CreateDonationCampaign = () => {
             if (petRes.data.insertedId) {
                 Swal.fire({
                     title: "Good job!",
-                    text: "created  Data!",
+                    text: "Created  Data!",
                     icon: "success"
                 });
 
             }
-     
+
         }
         console.log(res.data)
     }
@@ -58,7 +59,7 @@ const CreateDonationCampaign = () => {
                 <h1 className="text-3xl text-red-600 my-7 text-center">Create Donation Campaign</h1>
                 <div>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body w-10/12 mx-auto border bg-orange-200">
-                
+
 
 
                         {/* Pet  image */}
@@ -72,21 +73,29 @@ const CreateDonationCampaign = () => {
                         {/* Maximun Donation Amount*/}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-xl font-bold text-lime-500">Maximun Donation Amount</span>
+                                <span className="label-tex text-xl font-bold text-lime-500">MaximunDonation</span>
                             </label>
-
-                            <input type="number" {...register("donation", { required: true })} name="donation" placeholder="Maximum Donation Amount" className="input input-bordered" required />
-                           
+                            <input type="number" {...register("maximunDonation")} name="maximunDonation" placeholder="maximunDonation" className="input input-bordered" required />
+                            {errors.maximunDonation && <span className="text-red-600">This field is required</span>}
                         </div>
 
-                       
-                        {/* pet Location */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-tex text-xl font-bold bg-base-200">Last Date</span>
+                                <span className="label-text text-xl font-bold text-lime-500"> Donation Amount</span>
                             </label>
-                            <input type="date"  {...register("date", { required: true })} name="date" placeholder="Last Date" className="input input-bordered" required />
-                            {errors.lastDate && <span className="text-red-600">This field is required</span>}
+
+                            <input type="number" {...register("donation", { required: true })} name="donation" placeholder=" Donation Amount" className="input input-bordered" required />
+
+                        </div>
+
+
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-tex text-xl font-bold bg-base-200">Date</span>
+                            </label>
+                            <input type="date"  {...register("date", { required: true })} name="date" placeholder="date" className="input input-bordered" required />
+                            {errors.time && <span className="text-red-600">This field is required</span>}
                         </div>
 
 

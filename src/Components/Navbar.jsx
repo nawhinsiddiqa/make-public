@@ -56,6 +56,7 @@ const Navbar = () => {
                   <Link to="/"> <p>Home</p></Link>
                  
                   <Link to="/petListing"> <p>Pet Listing</p></Link>
+                  <Link to="/donationCampaignPage"> <p>DonationcampaignPage</p></Link>
                   <Link to="/login"><p>Login</p></Link>
                  <Link to="/register"> <p>Register</p></Link>
                 </div>
