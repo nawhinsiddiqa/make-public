@@ -5,7 +5,8 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, val
 import { useContext, useEffect, useRef, useState } from "react";
 import {AuthContext} from "../Provider/AuthProvider"
 import useAxiosPublic from "../hooks/useAxiosPublic";
-import axios from "axios";
+import Swal from 'sweetalert2'
+
 
 const Login = () => {
     const captchaRef =useRef(null)
@@ -27,7 +28,12 @@ const Login = () => {
 
         signInUser(email, password)
             .then(result => {
-                // Swal.fire("Successfully Logged in")
+                Swal.fire({
+                    title: "Good job!",
+                    text: "User Log in successfully!",
+                    icon: "success"
+                  });
+             
                 console.log(result)
                 const user = {email:result.user.email}
                 // axios.post('https://assignment-11-server-blond-omega.vercel.app/jwt',user,{withCredentials:true})
@@ -37,7 +43,7 @@ const Login = () => {
                      
                 
                 setTimeout(() => {
-                    // navigate('/')
+                    navigate('/')
                 }, 1000)
 
             })
@@ -51,6 +57,7 @@ const Login = () => {
                 const user_captcha_value  =captchaRef.current.value;
                 if(validateCaptcha(user_captcha_value)) {
                  setDisabled(false);
+               
                 }
                
 

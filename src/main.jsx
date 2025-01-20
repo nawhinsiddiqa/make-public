@@ -23,6 +23,8 @@ import CallAction from './Components/CallAction'
 import PetListing from './Components/PetListing'
 import PetDetails from './Components/PetDetails'
 import User from './Components/User'
+import UpdataPet from './Components/UpdataPet'
+import CreateDonationCampaign from './Components/CreateDonationCampaign'
 import {
   QueryClient,
   QueryClientProvider,
@@ -70,7 +72,12 @@ const router = createBrowserRouter([
     path:'/details/:id',
     element:<PetDetails></PetDetails>,
     loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`)
-   }
+   },
+   {
+    path:'/updataPet/:id',
+    element:<UpdataPet></UpdataPet>,
+    loader:({params}) =>fetch(`http://localhost:5000/details/${params.id}`)
+   },
 
 
 
@@ -97,7 +104,12 @@ const router = createBrowserRouter([
        {
         path:'user',
         element:<User></User>
-       }     
+       } ,
+       {
+        path:'createDonationCampaign',
+        element:<CreateDonationCampaign></CreateDonationCampaign>
+       }
+        
     ]
    
   },

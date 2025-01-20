@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import registerLottie from'../assets/register.json'
 import Lottie from "lottie-react";
 import { useContext, useState } from "react";
@@ -13,7 +13,7 @@ const Register = () => {
     const{createUser, updateUserProfile } =useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState('');
     
-
+const navigate =useNavigate();
    
     const handleRegister = (e) => {
         e.preventDefault();
@@ -53,8 +53,15 @@ const Register = () => {
                    .then(res =>{
                     if(res.data.insertedId){
                         // console.log('inserted')
-                        Swal.fire("created!");
+                        Swal.fire({
+                            title: "Good job!",
+                            text: "User Created Successfully!",
+                            icon: "success"
+                          });;
                     }
+                    setTimeout(() => {
+                        navigate('/login')
+                    }, 1000)
                    })
                    
                 })

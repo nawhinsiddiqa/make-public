@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const PetCard = ({item}) => {
-    const{petImage,petName,petAge,date,status,petCategory,petLocation,shortDescription,longDescription}=item;
+    const{petImage,petName,petAge,date,status,petCategory,petLocation,shortDescription,longDescription,_id}=item;
     return (
         <div>
             <div className="card bg-base-100 w-[400px]  rounded-lg shadow-xl my-6">
@@ -14,7 +15,7 @@ const PetCard = ({item}) => {
                     <h2 className="card-title">{petName}</h2>
                     <p>{shortDescription}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">View Details</button>
+                       <Link to={`/details/${_id}`}> <button className="btn btn-primary">View Details</button></Link>
                     </div>
                 </div>
             </div>

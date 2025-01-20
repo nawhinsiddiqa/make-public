@@ -1,5 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import { useForm } from "react-hook-form";
+
 
 const PetDetails = () => {
 
@@ -22,14 +22,17 @@ const PetDetails = () => {
                             alt="pets" />
                     </figure>
                     <div className="card-body">
-                        {/* <h2 className="card-title">{petName}</h2> */}
-                        {/* <p>{petCategory}</p> */}
+                        <h2 className="card-title">PetName:<span className="font-bold">{petName}</span></h2>
+                        <p>PetCategory:<span className="font-bold">{petCategory}</span></p>
+                        <p>petLocation:<span className="font-bold">{petLocation}</span></p>
                         <div className="card-actions justify-end">
+                        <p><span className="font-bold">Short Description</span>:{shortDescription}</p>
+                        <p><span className="font-bold">Long Description</span>:{longDescription}</p>
                             {/* <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>open modal</button> */}
                             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
-                                    <h3 className="font-bold text-lg">Hello!</h3>
-                                    <p className="py-4">Press ESC key or click the button below to close</p>
+                                    <h3 className="font-bold text-lg">WelCome!</h3>
+                                    <p className="py-4"></p>
                                     {/* Pet Name */}
                     <div className="form-control">
                         <label className="label">

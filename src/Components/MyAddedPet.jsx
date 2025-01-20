@@ -1,16 +1,56 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { MdOutlineSecurityUpdate } from "react-icons/md";
+import Swal from 'sweetalert2'
 
 const MyAddedPet = () => {
+    const navigate =useNavigate();
     const [pets, setPets] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/pets')
             .then(res => res.json())
             .then(data => setPets(data.slice(0, 12)))
-    }, [])
+    }, []);
+
+    
+     const handleDelete=_id=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed){
+        
+        
+                fetch(`http://localhost:5000/pets/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if(data.deletedCount > 0){
+
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Pet has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+
+            }
+        });
+        
+
+     }
+
 
     return (
         <div>
@@ -33,7 +73,7 @@ const MyAddedPet = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            pets.map((pet,index)=><tr>
+                            pets.map((pet,index)=><tr key={pet._id}>
                                 <th>
                                  {index+1}
                                 </th>
@@ -60,8 +100,8 @@ const MyAddedPet = () => {
                                 <td>{pet.petAge}</td>
                                 <th>
                                    <div className="flex">
-                                   <button className="btn btn-ghost btn-xs"><MdDelete /> Delete</button>
-                                   <button className="btn btn-ghost btn-xs"><MdOutlineSecurityUpdate /> Update</button>
+                                   <button onClick={() => handleDelete(pet._id)} className="btn btn-ghost btn-xs"><MdDelete /> Delete</button>
+                                  <Link to={`/updataPet/${pet._id}`}> <button className="btn btn-ghost btn-xs"><MdOutlineSecurityUpdate /> Update</button></Link>
                                    <button className="btn btn-ghost btn-xs">Adopt</button>
                                    </div>
                                 </th>
