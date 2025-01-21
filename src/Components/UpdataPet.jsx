@@ -60,11 +60,14 @@ const UpdataPet = () => {
                         icon: 'success',
                         confirmButtonText: 'Ok'
                       })
-                      navigate('/')
-                }
+                      
+                  navigate('/dashboard/myAddedPet')
+
+                    }
+
             })
            
-            navigate('/dashboard/myAddedPet')
+       
         }
         console.log(res.data)
     }
