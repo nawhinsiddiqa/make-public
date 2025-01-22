@@ -7,8 +7,9 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 const Edit = () => {
     const navigate = useNavigate()
     const pet = useLoaderData();
+    const { _id,petImage,donation,maximunDonation} =pet;
     console.log(pet)
-    const { _id,petImage,date,maximunDonation,donation,shortDescription, longDescription } =pet;
+    
     console.log(_id)
     const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
     const axiosPublic = useAxiosPublic();
@@ -43,7 +44,7 @@ const Edit = () => {
 
             }
 
-            fetch(`http://localhost:5000/donations/${_id}`, {
+            fetch(`http://localhost:5000/donate/details/${_id}`, {
 
                 method: 'PUT',
                 headers: {

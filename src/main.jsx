@@ -35,6 +35,10 @@ import DonateDetails from './Components/DonateDetails'
 import MyDonationCamp from './Components/MyDonationCamp'
 import Edit from './Components/Edit'
 import CreateSection from './Components/CreateSection'
+import PageMyDonation from './Components/PageMyDonation'
+import One from './Components/One'
+
+
 
 
 const queryClient = new QueryClient();
@@ -97,12 +101,16 @@ const router = createBrowserRouter([
    {
     path:'/edit/:id',
     element:<Edit></Edit>,
-    loader:({params}) =>fetch(`http://localhost:5000/edit/${params.id}`)
+    loader:({params}) =>fetch(`http://localhost:5000/donate/details/${params.id}`)
 
    },
    {
     path:'/createSection',
     element:<CreateSection></CreateSection>
+   },
+   {
+    path:'/one',
+    element:<One></One>
    }
 
 
@@ -137,8 +145,12 @@ const router = createBrowserRouter([
        {
         path:'myDonationCamp',
         element:<MyDonationCamp></MyDonationCamp>
+       },
+       
+       {
+        path:'pageMyDonation',
+        element:<PageMyDonation></PageMyDonation>
        }
-        
     ]
    
   },

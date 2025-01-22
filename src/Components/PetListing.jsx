@@ -8,17 +8,24 @@ const PetListing = () => {
     const[pet,setPet] =useState([]);
         const[loading,setLoading] =useState(true);
         const[search,setSearch] =useState('');
+        const[filter,setFilter] =useState('')
         useEffect(()=>{
-            fetch(`http://localhost:5000/all-pets?search=${search}`)
+            fetch(`http://localhost:5000/all-pets?filter=${filter?.toLowerCase()}&search=${search}`)
             .then(res =>res.json())
             .then(data =>{
                 setPet(data);
                 setLoading(false)
                
             })
-        },[search])
+        },[search,filter])
       
-    
+     console.log(filter)
+
+
+     const handleSearch=(e)=>{
+        e.preventDefault();
+        setSearch(e.target.value)
+     }
     const total = pet.filter(item => item.status === 'Not-adopted')
     return (
         <div>
@@ -27,7 +34,7 @@ const PetListing = () => {
                <form>
                <label className="input input-bordered flex items-center gap-2 w-72 mx-auto mb-3">
                     <input type="text" name="search" 
-                    onChange={e=>setSearch(e.target.value)}
+                     onChange={handleSearch}
                     className="grow" placeholder="Search" />
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +49,9 @@ const PetListing = () => {
                 </label>
                </form>
                 <div className="mx-auto mb-10">
-                    <select name="petCategory" className="select select-bordered w-72">
+                    <select name="petCategory" 
+                    onChange={(e)=>setFilter(e.target.value)}
+                    className="select select-bordered w-72">
                         <option disabled selected>Pet Category do you like?</option>
                         <option>Cat</option>
                         <option>Dog</option>

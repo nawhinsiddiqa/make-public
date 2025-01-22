@@ -1,9 +1,17 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { useLoaderData } from "react-router-dom";
+import CheckOutForm from "./CheckOutForm";
+import { useState } from "react";
+import Swal from 'sweetalert2'
 
-
+const stripePromise = loadStripe(import.meta.env.VITE_Payment__Gateway_Pk);
 const DonateDetails = () => {
+    const[price,setPrice]=useState(10)
+    const[check,setCheck]=useState(false)
     const { _id, petImage,maximunDonation, donation, date, shortDescription, longDescription } = useLoaderData();
     const handleClick=()=>{
+       setCheck(!check)
         document.getElementById('my_modal_3').showModal()
     }
 
@@ -30,15 +38,17 @@ const DonateDetails = () => {
                         <button className="btn" onClick={() => document.getElementById('my_modal_3').showModal()}>open modal</button> */}
                         <dialog id="my_modal_3" className="modal">
                             <div className="modal-box">
-                                <form method="dialog">
-                                    {/* if there is a button in form, it will close the modal */}
-                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                </form>
-                                <h3 className="font-bold text-lg">Donate!</h3>
+                               
+                                    <Elements stripe={stripePromise}>
+                                        <CheckOutForm price={price} check={check} setCheck={setCheck}></CheckOutForm>
+                                    </Elements>
+                                
+                                <h3 className="font-bold text-lg"></h3>
                                 <p className="py-4"></p>
                             </div>
                         </dialog>
-                        <button onClick={handleClick} className="btn btn-primary">Donate Now</button>
+                        <input onChange={(e)=>setPrice(parseFloat(e.target.value))}type="number"></input>
+                        <button onClick={(e)=>handleClick(e,price)} className="btn btn-primary">Donate Now</button>
                     </div>
                 </div>
             </div>
