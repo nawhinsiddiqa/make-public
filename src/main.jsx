@@ -38,6 +38,8 @@ import CreateSection from './Components/CreateSection'
 import PageMyDonation from './Components/PageMyDonation'
 import One from './Components/One'
 import AllPet from './Components/AllPet'
+import AllDonations from './Components/AllDonations'
+import PageEdit from './Components/PageEdit'
 
 
 
@@ -54,113 +56,121 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement:<ErrorElement></ErrorElement>,
-    children:[
+    errorElement: <ErrorElement></ErrorElement>,
+    children: [
       {
-        path:'/',
-        element:<Home></Home>,
-    },
-   {
-        path:'/login',
-        element:<Login></Login>
-   },
-   {
-    path:'/register',
-    element:<Register></Register>
-   },
+        path: '/',
+        element: <Home></Home>,
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
 
-   {
-    path:'/callAction',
-    element:<CallAction></CallAction>
-   },
-   {
-    path:'/petListing',
-    element:<PetListing></PetListing>
+      {
+        path: '/callAction',
+        element: <CallAction></CallAction>
+      },
+      {
+        path: '/petListing',
+        element: <PetListing></PetListing>
 
-   },
-   {
-    path:'/details/:id',
-    element:<PetDetails></PetDetails>,
-    loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`)
-   },
-   {
-    path:'/donate/details/:id',
-    element:<DonateDetails></DonateDetails>,
-    loader:({params})=>fetch(`http://localhost:5000/donate/details/${params.id}`)
-   },
-   {
-    path:'/updataPet/:id',
-    element:<UpdataPet></UpdataPet>,
-    loader:({params}) =>fetch(`http://localhost:5000/details/${params.id}`)
-   },
-         
+      },
+      {
+        path: '/details/:id',
+        element: <PetDetails></PetDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+      },
+      {
+        path: '/donate/details/:id',
+        element: <DonateDetails></DonateDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/donate/details/${params.id}`)
+      },
+      {
+        path: '/updataPet/:id',
+        element: <UpdataPet></UpdataPet>,
+        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+      },
+      {
+        path: '/paymentCollection/:id',
+        element: <PageEdit></PageEdit>,
+        loader:({params}) =>fetch(`http://localhost:5000/payment-collection/${params.id}`)
+      },
 
-   {
-    path:'donationCampaignPage',
-    element:<DonationCampaign></DonationCampaign>
-   },
-   {
-    path:'/edit/:id',
-    element:<Edit></Edit>,
-    loader:({params}) =>fetch(`http://localhost:5000/donate/details/${params.id}`)
+      {
+        path: 'donationCampaignPage',
+        element: <DonationCampaign></DonationCampaign>
+      },
+      {
+        path: '/edit/:id',
+        element: <Edit></Edit>,
+        loader: ({ params }) => fetch(`http://localhost:5000/donate/details/${params.id}`)
 
-   },
-   {
-    path:'/createSection',
-    element:<CreateSection></CreateSection>
-   },
-   {
-    path:'/one',
-    element:<One></One>
-   }
+      },
+      {
+        path: '/createSection',
+        element: <CreateSection></CreateSection>
+      },
+      {
+        path: '/one',
+        element: <One></One>
+      }
 
 
 
-  ]
+    ]
   },
   {
-    path:'/dashboard',
-    element:<Dashboard></Dashboard>,
-    children:[
-       {
-        path:'addPet',
-        element:<AddAPet></AddAPet>
-       },
-       {
-        path:'myAddedPet',
-        element:<MyAddedPet></MyAddedPet>,
-        loader:() =>fetch('http://localhost:5000/pets')
-       },
-       {
-        path:'adoptationRequest',
-        element:<AdoptationRequest></AdoptationRequest>
-       },
-       {
-        path:'user',
-        element:<User></User>
-       } ,
-       {
-        path:'createDonationCampaign',
-        element:<CreateDonationCampaign></CreateDonationCampaign>
-       },
-       {
-        path:'myDonationCamp',
-        element:<MyDonationCamp></MyDonationCamp>
-       },
-       
-       {
-        path:'pageMyDonation',
-        element:<PageMyDonation></PageMyDonation>
-       },
-       {
-        path:'allPet',
-        element:<AllPet></AllPet>
-       }
+    path: '/dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'addPet',
+        element: <AddAPet></AddAPet>
+      },
+      {
+        path: 'myAddedPet',
+        element: <MyAddedPet></MyAddedPet>,
+        loader: () => fetch('http://localhost:5000/pets')
+      },
+      {
+        path: 'adoptationRequest',
+        element: <AdoptationRequest></AdoptationRequest>
+      },
+      {
+        path: 'user',
+        element: <User></User>
+      },
+      {
+        path: 'createDonationCampaign',
+        element: <CreateDonationCampaign></CreateDonationCampaign>
+      },
+      {
+        path: 'myDonationCamp',
+        element: <MyDonationCamp></MyDonationCamp>
+      },
+
+      {
+        path: 'pageMyDonation',
+        element: <PageMyDonation></PageMyDonation>
+      },
+      {
+        path: 'allPet',
+        element: <AllPet></AllPet>
+      },
+      {
+        path: 'allDonations',
+        element: <AllDonations></AllDonations>
+      }
     ]
-   
+
   },
- 
-   
+
+
 
 ]);
 
@@ -168,12 +178,12 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  
 
-  <AuthProvider>
-   <QueryClientProvider client={queryClient}>
-   <RouterProvider router={router} />
-    </QueryClientProvider>
-   </AuthProvider>
+
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </AuthProvider>
   </StrictMode>,
 )
