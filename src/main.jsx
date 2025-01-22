@@ -37,6 +37,7 @@ import Edit from './Components/Edit'
 import CreateSection from './Components/CreateSection'
 import PageMyDonation from './Components/PageMyDonation'
 import One from './Components/One'
+import AllPet from './Components/AllPet'
 
 
 
@@ -150,6 +151,10 @@ const router = createBrowserRouter([
        {
         path:'pageMyDonation',
         element:<PageMyDonation></PageMyDonation>
+       },
+       {
+        path:'allPet',
+        element:<AllPet></AllPet>
        }
     ]
    

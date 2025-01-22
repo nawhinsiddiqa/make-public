@@ -7,7 +7,7 @@ const PageMyDonation = () => {
     const [pets, setPets] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/pets')
+        fetch('http://localhost:5000/payment-collection')
             .then(res => res.json())
             .then(data => setPets(data))
     }, []);
@@ -19,15 +19,18 @@ const PageMyDonation = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th className="mt-10">
-                               Serial Number
-                            </th>
+                           <th className="font-bold">Email</th>
                             <div className="flex mt-2"><th>Image</th>
-                            <th>Name</th>
+                           
+                            <th> Name</th>
                             </div>
-                            <th> Adoptation Status</th>
-                            <th>Pet Age</th>
-                            <th>Buttons</th>
+
+                            
+                            <th className="mt-3">Date</th>
+                            
+                            <th>Donated Amount</th>
+                            <th>Button</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -35,7 +38,7 @@ const PageMyDonation = () => {
                         {
                             pets.map((pet,index)=><tr key={pet._id}>
                                 <th>
-                                 {index+1}
+                                 {pet.email}
                                 </th>
                                 <td>
                                     <div className="items-center gap-3">
@@ -47,19 +50,29 @@ const PageMyDonation = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="font-bold">{pet.petName}</div>
-                                            <div className="text-sm opacity-50">{pet.petLocation}</div>
+                                        <div className="font-bold">{pet.petName}</div>
+                                        
                                         </div>
+                                       
                                     </div>
+                                   
+                                        <div>
+
+                                        </div>
+                                       
+                                        
                                 </td>
+                                <td>{pet.date}</td>
                                 <td>
-                                    {pet.status}
+                                <td>{pet.price}</td>
+                                
+                                
                                     <br />
                                     {/* <span className="badge badge-ghost badge-sm">Desktop Support Technician</span> */}
                                 </td>
-                                <td>{pet.petAge}</td>
+                             
                                 <th>
-                                   
+                                   <button>refund</button>
                                 </th>
                             </tr>)
                         }

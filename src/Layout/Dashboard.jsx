@@ -16,7 +16,7 @@ const Dashboard = () => {
                     {
                         isAdmin ? <>
                             <li className="mb-3"><NavLink to="/dashboard/user">Users</NavLink></li>
-                            <li className="mb-3"><NavLink to="/dashboard/adoptationRequest">All Pet</NavLink></li>
+                            <li className="mb-3"><NavLink to="/dashboard/allPet">All Pet</NavLink></li>
                         </>
                             :
                             <>
