@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 
 
-const CheckOutForm = ({price, check, setCheck }) => {
+const CheckOutForm = ({ price, check, setCheck }) => {
+    const navigate =useNavigate();
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId] = useState('');
@@ -86,25 +89,22 @@ const CheckOutForm = ({price, check, setCheck }) => {
             price: price,
             transactionId: paymentIntent.id,
             date: new Date(), // utc date convert. use moment js to 
-           
+
             status: 'pending'
         }
         const res = await axiosSecure.post('/payment-collection', payment);
         console.log('payment saved', res.data);
-        
-        if (res.data?.paymentResult?.insertedId) {
+
+        if (res.data.insertedId) {
             Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Thank you for the taka paisa",
-                showConfirmButton: false,
-                timer: 1500
+                title: "Good job!",
+                text: "Payment successfully!",
+                icon: "success"
             });
-            
+           
         }
 
-
-
+       
 
 
 

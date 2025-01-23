@@ -41,7 +41,7 @@ import AllPet from './Components/AllPet'
 import AllDonations from './Components/AllDonations'
 import PageEdit from './Components/PageEdit'
 import AdoptationRequrst from './Components/AdoptationRequrst'
-import AdminRoute from './Components/AdminRoute'
+import AdminRoute from '../AdminRoute'
 import PrivateRoute from './Components/PrivateRoute'
 
 

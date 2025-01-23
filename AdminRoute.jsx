@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import useAdmin from "../hooks/useAdmin";
-import { AuthContext } from "../Provider/AuthProvider";
+import useAdmin from "./src/hooks/useAdmin";
+import { AuthContext } from "./src/Provider/AuthProvider";
 import { Navigate } from "react-router-dom";
 
  

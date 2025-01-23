@@ -47,7 +47,7 @@ const DonateDetails = () => {
                                 <p className="py-4"></p>
                             </div>
                         </dialog>
-                        <input onChange={(e)=>setPrice(parseFloat(e.target.value))}type="number"></input>
+                        <input onChange={(e)=>setPrice(parseFloat(e.target.value))}type="number" placeholder="price" ></input>
                         <button onClick={(e)=>handleClick(e,price)} className="btn btn-primary">Donate Now</button>
                     </div>
                 </div>
