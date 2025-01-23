@@ -72,7 +72,12 @@ const Login = () => {
                     }
                 axiosPublic.post('/users',userInfo)
                 .then(res =>{
-                    console.log(res.data)
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "User Log in successfully!",
+                        icon: "success"
+                      });
+                 
                     navigate('/');
                 })
                 })

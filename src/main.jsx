@@ -40,6 +40,9 @@ import One from './Components/One'
 import AllPet from './Components/AllPet'
 import AllDonations from './Components/AllDonations'
 import PageEdit from './Components/PageEdit'
+import AdoptationRequrst from './Components/AdoptationRequrst'
+import AdminRoute from './Components/AdminRoute'
+import PrivateRoute from './Components/PrivateRoute'
 
 
 
@@ -118,15 +121,16 @@ const router = createBrowserRouter([
       {
         path: '/one',
         element: <One></One>
-      }
-
+      },
+     
+         
 
 
     ]
   },
   {
     path: '/dashboard',
-    element: <Dashboard></Dashboard>,
+    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'addPet',
@@ -143,7 +147,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'user',
-        element: <User></User>
+        element: <AdminRoute><User></User></AdminRoute>
       },
       {
         path: 'createDonationCampaign',
@@ -160,11 +164,15 @@ const router = createBrowserRouter([
       },
       {
         path: 'allPet',
-        element: <AllPet></AllPet>
+        element: <AdminRoute><AllPet></AllPet></AdminRoute>
       },
       {
         path: 'allDonations',
-        element: <AllDonations></AllDonations>
+        element: <AdminRoute><AllDonations></AllDonations></AdminRoute>
+      },
+      {
+        path:'adoptation',
+        element:<AdoptationRequrst></AdoptationRequrst>
       }
     ]
 

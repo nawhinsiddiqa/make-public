@@ -1,26 +1,25 @@
 import { useContext } from "react";
+import useAdmin from "../hooks/useAdmin";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Navigate } from "react-router-dom";
 
+ 
+ 
+ const AdminRoute = ({children}) => {
+    const[isAdmin,isAdminLoading] = useAdmin();
+    const{user,loading}=useContext(AuthContext);
 
-const PrivateRoute = ({children}) => {
-    const{user,loading} =useContext(AuthContext)
-   
-    
-    // if(loading){
+    // if(loading || isAdminLoading){
     //     return  <progress className="progress w-56"></progress>
     // }
-
-   
-
-    if(user){
+    
+    if(user && isAdmin){
         return children
     }
     return (
        <Navigate to="/login"></Navigate>
     );
-};
-
+   
+ };
  
-
-export default PrivateRoute;
+ export default AdminRoute;  

@@ -10,7 +10,7 @@ import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Register = () => {
     const axiosPublic= useAxiosPublic();
-    const{createUser, updateUserProfile } =useContext(AuthContext)
+    const{createUser, updateUserProfile,googleSignIn } =useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState('');
     
 const navigate =useNavigate();
@@ -78,6 +78,26 @@ const navigate =useNavigate();
             })
         
     }
+    const  handleGoogleSignIn =()=>{
+        googleSignIn()
+        .then(result =>{
+            console.log(result.user)
+            const userInfo ={
+                email:result.user?.email,
+                name:result.user?.displayName
+            }
+        axiosPublic.post('/users',userInfo)
+        .then(res =>{
+            
+            Swal.fire({
+                title: "Good job!",
+                text: "User Created Successfully!",
+                icon: "success"
+              });;
+            navigate('/');
+        })
+        })
+    }
     return (
         <div>
             <div>
@@ -138,7 +158,7 @@ const navigate =useNavigate();
                             </p>
                             <p>
                                 <button
-                                    // onClick={handleGoogleSignIn}
+                                    onClick={handleGoogleSignIn}
                                     className="btn bg-amber-500 w-full mx-auto text-black">Google</button>
                             </p>
                             {
