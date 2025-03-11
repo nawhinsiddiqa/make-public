@@ -2,8 +2,8 @@
 ## Description
  A pet or companion animal is an animal kept primarily for a person's company, entertainment, or as an act of compassion such as taking in and protecting a hungry stray cat, rather than as a working animal, livestock, or laboratory animal
 
-Five key features of the project
-Dependent on Humans to Live
+# Five key features of the project
+_Dependent on Humans to Live
 A pet needs to be given food, water, and shelter by its owner. Being domesticated means the animal depends on its owner for all of its care.
 
 Lives in a Home
