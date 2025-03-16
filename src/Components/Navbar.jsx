@@ -19,7 +19,7 @@ const Navbar = () => {
     }
     return (
         <div>
-            <div className="navbar bg-lime-200 top sticky-0">
+            <div className="navbar bg-lime-200">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,7 +68,7 @@ const Navbar = () => {
                             <div className="w-10 rounded-full">
                                 <img
                                     alt="Tailwind CSS Navbar component"
-                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    src="https://i.ibb.co.com/wFgXbBk1/CSJLQECQ.jpg" />
                             </div>
                         </div>
                         <ul
