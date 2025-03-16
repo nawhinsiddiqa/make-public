@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import CallAction from "./CallAction";
 import PetsCategory from "./PetsCategory";
 import CreateSection from "./CreateSection";
+import Experience from "./Experience";
 import One from "./One";
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <AboutUs></AboutUs>
             <CreateSection></CreateSection>
             <One></One>
+            <Experience></Experience>
         </div>
     );
 };
