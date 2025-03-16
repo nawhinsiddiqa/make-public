@@ -4,4 +4,15 @@
 
 
 
-C
+ why Adopt--
+  ✅ Save a life and reduce shelter overcrowding
+✅ Gain a loving companion who needs you
+✅ Promote responsible pet ownership
+✅Spread the word and encourage others to adoptbr
+❤️ Fresh Start – Every adoption gives a homeless pet a fresh start.
+🏡 Unconditional Love – Adopted pets form deep, lifelong bonds with their owners
+💰 Affordable & Responsible – Shelters often provide vaccinations and spaying/neutering at low cost.
+🌍 Make a Difference – Reduce pet homelessness and give animals the love they deserve.             
+
+
+LiveSite: actually-change.surge.sh

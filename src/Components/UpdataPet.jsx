@@ -42,7 +42,7 @@ const UpdataPet = () => {
             }
             // const updatedPet ={petName,petImage,petLocation,petAge,status,shortDescription,longDescription}
              console.log(_id)
-            fetch(`http://localhost:5000/pets/${_id}`,{
+            fetch(`https://assignment-12-five-gamma.vercel.app/pets/${_id}`,{
                 
                 method:'PUT',
                 headers:{

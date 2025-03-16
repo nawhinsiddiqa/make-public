@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link,  } from "react-router-dom";
 
 
-import Swal from 'sweetalert2'
+
 
 const AdoptationRequest = () => {
     const [pets, setPets] = useState([]);
@@ -10,7 +10,7 @@ const AdoptationRequest = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/adoptation-request')
+        fetch('https://assignment-12-five-gamma.vercel.app/adoptation-request')
             .then(res => res.json())
             .then(data => setPets(data))
     }, []);

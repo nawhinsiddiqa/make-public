@@ -44,7 +44,7 @@ const Edit = () => {
 
             }
 
-            fetch(`http://localhost:5000/donate/details/${_id}`, {
+            fetch(`https://assignment-12-five-gamma.vercel.app/donate/details/${_id}`, {
 
                 method: 'PUT',
                 headers: {

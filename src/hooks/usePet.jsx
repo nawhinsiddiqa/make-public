@@ -5,7 +5,7 @@ const usePet =()=>{
     const[pet,setPet] =useState([]);
     const[loading,setLoading] =useState(true);
     useEffect(()=>{
-        fetch('http://localhost:5000/pets')
+        fetch('https://assignment-12-five-gamma.vercel.app/pets')
         .then(res =>res.json())
         .then(data =>{
             setPet(data);

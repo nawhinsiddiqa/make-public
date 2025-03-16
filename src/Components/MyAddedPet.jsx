@@ -9,7 +9,7 @@ const MyAddedPet = () => {
     const [pets, setPets] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/pets')
+        fetch('https://assignment-12-five-gamma.vercel.app/pets')
             .then(res => res.json())
             .then(data => setPets(data.slice(0, 12)))
     }, []);
@@ -28,7 +28,7 @@ const MyAddedPet = () => {
             if (result.isConfirmed){
         
         
-                fetch(`http://localhost:5000/pets/${_id}`, {
+                fetch(`https://assignment-12-five-gamma.vercel.app/pets/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

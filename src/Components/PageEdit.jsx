@@ -44,7 +44,7 @@ const PageEdit = () => {
 
 
             }
-            fetch(`http://localhost:5000/payment-collection/${_id}`, {
+            fetch(`https://assignment-12-five-gamma.vercel.app/payment-collection/${_id}`, {
 
                 method: 'PUT',
                 headers: {

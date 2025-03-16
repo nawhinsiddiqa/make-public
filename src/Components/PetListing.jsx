@@ -10,7 +10,7 @@ const PetListing = () => {
         const[search,setSearch] =useState('');
         const[filter,setFilter] =useState('')
         useEffect(()=>{
-            fetch(`http://localhost:5000/all-pets?filter=${filter?.toLowerCase()}&search=${search}`)
+            fetch(`https://assignment-12-five-gamma.vercel.app/all-pets?filter=${filter?.toLowerCase()}&search=${search}`)
             .then(res =>res.json())
             .then(data =>{
                 setPet(data);

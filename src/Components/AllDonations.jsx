@@ -9,7 +9,7 @@ const AllDonations = () => {
     const [pets, setPets] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/payment-collection')
+        fetch('https://assignment-12-five-gamma.vercel.app/payment-collection')
             .then(res => res.json())
             .then(data => setPets(data))
     }, []);
@@ -24,7 +24,7 @@ const AllDonations = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/payment-collection/${_id}`, {
+                fetch(`https://assignment-12-five-gamma.vercel.app/payment-collection/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

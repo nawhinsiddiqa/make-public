@@ -86,22 +86,22 @@ const router = createBrowserRouter([
       {
         path: '/details/:id',
         element: <PetDetails></PetDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-12-five-gamma.vercel.app/details/${params.id}`)
       },
       {
         path: '/donate/details/:id',
         element: <DonateDetails></DonateDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/donate/details/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-12-five-gamma.vercel.app/donate/details/${params.id}`)
       },
       {
         path: '/updataPet/:id',
         element: <UpdataPet></UpdataPet>,
-        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-12-five-gamma.vercel.app/details/${params.id}`)
       },
       {
         path: '/paymentCollection/:id',
         element: <PageEdit></PageEdit>,
-        loader:({params}) =>fetch(`http://localhost:5000/payment-collection/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-12-five-gamma.vercel.app/payment-collection/${params.id}`)
       },
 
       {
@@ -111,7 +111,7 @@ const router = createBrowserRouter([
       {
         path: '/edit/:id',
         element: <Edit></Edit>,
-        loader: ({ params }) => fetch(`http://localhost:5000/donate/details/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-12-five-gamma.vercel.app/donate/details/${params.id}`)
 
       },
       {
@@ -122,15 +122,15 @@ const router = createBrowserRouter([
         path: '/one',
         element: <One></One>
       },
-     
-         
+
+
 
 
     ]
   },
   {
     path: '/dashboard',
-    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'addPet',
@@ -139,7 +139,7 @@ const router = createBrowserRouter([
       {
         path: 'myAddedPet',
         element: <MyAddedPet></MyAddedPet>,
-        loader: () => fetch('http://localhost:5000/pets')
+        loader: () => fetch('https://assignment-12-five-gamma.vercel.app/pets')
       },
       {
         path: 'adoptationRequest',
@@ -147,7 +147,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'user',
-        element: <AdminRoute><User></User></AdminRoute>
+        element:<AdminRoute><User></User></AdminRoute>
       },
       {
         path: 'createDonationCampaign',
@@ -168,11 +168,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'allDonations',
-        element: <AdminRoute><AllDonations></AllDonations></AdminRoute>
+        element: <AdminRoute></AdminRoute>
       },
       {
-        path:'adoptation',
-        element:<AdoptationRequrst></AdoptationRequrst>
+        path: 'adoptation',
+        element: <AdoptationRequrst></AdoptationRequrst>
       }
     ]
 
